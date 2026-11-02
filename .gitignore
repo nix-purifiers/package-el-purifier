@@ -1,0 +1,4 @@
+/result*
+.package-el-purifier
+__pycache__/
+*.pyc

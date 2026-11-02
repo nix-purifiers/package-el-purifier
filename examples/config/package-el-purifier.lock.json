@@ -1,0 +1,49 @@
+{
+  "builtins": {
+    "compat": [
+      31,
+      1,
+      9999
+    ],
+    "emacs": [
+      31,
+      1
+    ]
+  },
+  "configHash": "22da0fda8a0bcadd976860be4fd5f363ea5d4f69dce6d820a908a07744aec4fd",
+  "contentHash": "36f70c90b1ef8497d2608f39053f9ef0b1d73d07aeadc08e0b9d0dccd1015b95",
+  "emacsVersion": "31.1",
+  "packages": [
+    {
+      "hash": "sha256-XDSS7bHgAg2nEdmkITo4eOkOevji5jdXV5AfSzmYcv8=",
+      "kind": "tar",
+      "name": "vertico",
+      "requirements": [
+        [
+          "emacs",
+          [
+            29,
+            1
+          ]
+        ],
+        [
+          "compat",
+          [
+            31
+          ]
+        ]
+      ],
+      "summary": "VERTical Interactive COmpletion",
+      "url": "https://elpa.gnu.org/packages/vertico-2.15.tar",
+      "version": "2.15",
+      "versionList": [
+        2,
+        15
+      ]
+    }
+  ],
+  "selected": [
+    "vertico"
+  ],
+  "version": 1
+}
