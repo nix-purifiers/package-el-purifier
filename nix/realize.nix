@@ -9,9 +9,9 @@ let
   pkgs = import (builtins.toPath "@nixpkgs@") { };
   purifier = import (builtins.toPath "@purifier@/nix/lib") { inherit (pkgs) lib; };
   args = {
-    src = builtins.toPath project;
-    configFile = builtins.toPath configFile;
-    lockFile = builtins.toPath lockFile;
+    src = /. + project;
+    configFile = /. + configFile;
+    lockFile = /. + lockFile;
   };
 in
 if target == "environment" then

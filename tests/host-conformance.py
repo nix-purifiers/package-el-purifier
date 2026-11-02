@@ -71,6 +71,8 @@ with tempfile.TemporaryDirectory(prefix='package-el-conformance-') as temp:
         assert native.stdout==result.stdout,native
         assert 'Plugin resolved impurely' in native.stderr,native.stderr
         if case=='external':
+            run(['nix','build','--impure','--file',temp/'cli/lib/package-el-purifier/nix/realize.nix','--argstr','project',root,'--argstr','configFile',config,'--argstr','lockFile',lockfile,'--argstr','target','release','--out-link',temp/'release'])
+        if case=='external':
             assert not (root/'package-el-purifier.lock.json').exists()
             assert lockfile.read_bytes()==original
             assert not list(root.glob('*.nix'))
