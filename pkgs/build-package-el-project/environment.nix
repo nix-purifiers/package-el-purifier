@@ -69,7 +69,7 @@ runCommand "purified-emacs-environment" { nativeBuildInputs = [ emacs ]; } ''
   cp ${metadata} "$out/metadata.json"
   cat > "$out/site-lisp/site-start.el" <<EOF
   ;;; site-start.el --- Locked packages -*- lexical-binding: t; -*-
-  (load "${../lisp/package-el-purifier.el}" nil t)
+  (load "${../../lisp/package-el-purifier.el}" nil t)
   (setq package-el-purifier--nix-delivered t)
   (package-el-purifier--activate-environment "$out")
   EOF
