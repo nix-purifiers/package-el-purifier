@@ -21,11 +21,11 @@
       shared = lib: import (purifier + "/nix/lib") { inherit lib; };
       overlay = final: prev: {
         package-el-purifier = final.lib.makeScope final.newScope (scope: {
-          cli = scope.callPackage ./nix/cli.nix {
+          cli = scope.callPackage ./pkgs/package-el-purifier/default.nix {
             nixpkgsSrc = nixpkgs;
             purifierSrc = purifier;
           };
-          buildPackageElProject = scope.callPackage ./nix/build-project.nix { purifier = shared final.lib; };
+          buildPackageElProject = scope.callPackage ./pkgs/build-package-el-project/default.nix { purifier = shared final.lib; };
         });
       };
       pkgsFor =
@@ -37,7 +37,7 @@
     in
     {
       overlays.default = overlay;
-      lib.package-el-purifier.readLock = import ./nix/read-lock.nix { lib = nixpkgs.lib; };
+      lib.package-el-purifier = import ./lib-overlays/default { lib = nixpkgs.lib; };
       packages = forAll (system: {
         default = (pkgsFor system).package-el-purifier.cli;
         cli = self.packages.${system}.default;

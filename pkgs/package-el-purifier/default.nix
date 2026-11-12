@@ -14,12 +14,12 @@
 stdenvNoCC.mkDerivation {
   pname = "package-el-purifier";
   version = "0.1.0";
-  src = ../.;
+  src = ../..;
   nativeBuildInputs = [ makeWrapper ];
   dontBuild = true;
   installPhase = ''
     mkdir -p "$out/bin" "$out/lib/package-el-purifier" "$out/share/emacs/site-lisp"
-    cp -r package_el_purifier nix lisp "$out/lib/package-el-purifier/"
+    cp -r package_el_purifier nix lib-overlays pkgs lisp "$out/lib/package-el-purifier/"
     cp lisp/package-el-purifier.el "$out/share/emacs/site-lisp/"
     install -m755 bin/package-el-purifier "$out/bin/package-el-purifier"
     substituteInPlace "$out/lib/package-el-purifier/nix/realize.nix" \
